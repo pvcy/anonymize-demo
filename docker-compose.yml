@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+  users-api:
+    build:
+      context: .
+      dockerfile: users-api/Dockerfile
+    environment:
+      DB_USERNAME: "postgres"
+      DB_PASSWORD: "testing"
+      LOAD_DATA: "True"
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: testing
+    ports:
+      - 5432:5432
+
