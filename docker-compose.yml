@@ -13,6 +13,15 @@ services:
     depends_on:
       - db
 
+  users-ui:
+    build:
+      context: .
+      dockerfile: users-ui/Dockerfile
+    ports:
+      - 5000:5000
+    depends_on:
+      - users-api
+
   db:
     image: postgres
     environment:
