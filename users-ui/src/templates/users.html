@@ -17,33 +17,66 @@
     tr:nth-child(even) {
       background-color: #D6EEEE;
     }
+
+    a {
+      text-decoration: none;
+      display: inline-block;
+      padding: 8px 16px;
+    }
+
+    a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .prev-next-button {
+      background-color: #04AA6D;
+      color: white;
+      border-radius: 50%;
+    }
+
+    div.navbuttons {
+      text-align: right;
+      padding: 3px;
+    }
   </style>
 </head>
-<table style="height: 200px;" width="100%">
-<tbody>
-        <tr>
-          <th>ID</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Phone</th>
-          <th>City</th>
-          <th>State</th>
-          <th>Zip Code</th>
-          <th>Age</th>
-          <th>Gender</th>
-        </tr>
-        {% for user in users %}
-        <tr>
-              <td>{{ user["user_id"] }}<br></td>
-              <td>{{ user["first_name"] }}<br></td>
-              <td>{{ user["last_name"] }}<br></td>
-              <td>{{ user["phone"] }}<br></td>
-              <td>{{ user["city"] }}<br></td>
-              <td>{{ user["state"] }}<br></td>
-              <td>{{ user["zip"] }}<br></td>
-              <td>{{ user["age"] }}<br></td>
-              <td>{{ user["gender"] }}<br></td>
-        </tr>
-        {% endfor %}
-</tbody>
-</table>
+<body>
+  <div class="navbuttons">
+  {%- if page == 1 %}
+    <a href="/?page=2" class="prev-next-button">&#8250;</a>
+  {%- else %}
+    <a href="/?page={{ page - 1 }}" class="prev-next-button">&#8249;</a>
+    <a href="/?page={{ page + 1 }}" class="prev-next-button">&#8250;</a>
+  {%- endif %}
+  </div>
+
+  <table>
+    <tbody>
+          <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip Code</th>
+            <th>Age</th>
+            <th>Gender</th>
+          </tr>
+          {% for user in users %}
+          <tr>
+                <td>{{ user["user_id"] }}<br></td>
+                <td>{{ user["first_name"] }}<br></td>
+                <td>{{ user["last_name"] }}<br></td>
+                <td>{{ user["phone"] }}<br></td>
+                <td>{{ user["city"] }}<br></td>
+                <td>{{ user["state"] }}<br></td>
+                <td>{{ user["zip"] }}<br></td>
+                <td>{{ user["age"] }}<br></td>
+                <td>{{ user["gender"] }}<br></td>
+          </tr>
+          {% endfor %}
+    </tbody>
+  </table>
+</body>
