@@ -9,4 +9,5 @@ fi
 
 gunicorn --workers 2 \
 -b 0.0.0.0:8000 \
-users-api:app
+users-api:app \
+--access-logfile -
