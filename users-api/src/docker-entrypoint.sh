@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-if [ "$LOAD_DATA" = "True" ]; then
+if [[ "${LOAD_DATA:=True}" == "True" ]]; then
   echo "Loading Data..."
   python load-data.py
 else

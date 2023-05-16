@@ -6,8 +6,8 @@ services:
       dockerfile: users-api/Dockerfile
     environment:
       DB_USERNAME: "postgres"
-      DB_PASSWORD: "testing"
-      LOAD_DATA: "True"
+      DB_PASSWORD: ${DB_PASSWORD:-dMVZFeBWLOzYRV71} #It is strongly recommended to provide DB_PASSWORD in the environment rather than use this default.
+      LOAD_DATA:
     ports:
       - 8000:8000
     depends_on:
@@ -25,7 +25,7 @@ services:
   db:
     image: postgres
     environment:
-      POSTGRES_PASSWORD: testing
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-dMVZFeBWLOzYRV71}
     ports:
       - 5432:5432
 
