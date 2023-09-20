@@ -27,5 +27,5 @@ Once connectivity to the databases is established, a base environment can be use
 ## Getting started
 You can run a single instance of the application locally. All you need to get started is [Docker](https://www.docker.com/) installed on your local machine.
 
-1. Start the application with `docker compose -up --build`. This will seed the PostgreSQL database with data from the JSON file.
+1. Start the application with `docker compose up --build`. This will seed the PostgreSQL database with data from the JSON file.
 2. Navigate to `http://localhost:5000` in your browser.
